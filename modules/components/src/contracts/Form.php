@@ -2,7 +2,6 @@
 
 namespace modules\components\contracts;
 
-use Craft;
 use craft\base\Model;
 use modules\components\models\InputConditional;
 use modules\components\models\InputOption;
@@ -78,35 +77,5 @@ abstract class Form extends Model
         }
 
         return $this->attributeConditionals()[$name] ?? null;
-    }
-
-    /**
-     * @return AttributeDetail[]
-     */
-    public function attributeDetails(): array
-    {
-        return [];
-    }
-
-    /**
-     * Helper function to validate hashed hidden inputs from frontend forms.
-     * https://www.yiiframework.com/doc/guide/2.0/en/input-validation#creating-validators.
-     *
-     * @param string                          $attribute the attribute currently being validated
-     * @param mixed                           $params    the value of the "params" given in the rule
-     * @param \yii\validators\InlineValidator $validator related InlineValidator instance
-     * @param mixed                           $current   the currently validated value of attribute
-     */
-    public function validateHash($attribute, $params, $validator, $current)
-    {
-        $unhashed = Craft::$app->getSecurity()->validateData($this->{$attribute});
-
-        if ($unhashed === false) {
-            $this->addErrors([$attribute => 'Invalid hashed input.']);
-
-            return false;
-        }
-
-        $this->{$attribute} = $unhashed;
     }
 }

@@ -15,27 +15,27 @@
 # This script requires a sibling file named ".env" that contains named
 # variabels as follows:
 #
-# |_ DB_USER (craft CMS variable)
-# |_ DB_PASSWORD (craft CMS variable)
-# |_ DB_DATABASE (craft CMS variable)
-# |_ HOME_PATH
-# |_ WEB_DIR
-# |_ ASSETS_DIR (craft CMS variables)
-# |_ ASSETS_ARE_LOCAL
-# |_ STAG_SSH_HOST
-# |_ STAG_USER
-# |_ STAG_HOME_PATH
-# |_ STAG_DB_HOST
-# |_ STAG_DB_USER
-# |_ STAG_DB_PASSWORD
-# |_ STAG_DB_DATABASE
-# |_ PROD_SSH_HOST
-# |_ PROD_USER
-# |_ PROD_HOME_PATH
-# |_ PROD_DB_HOST
-# |_ PROD_DB_USER
-# |_ PROD_DB_PASSWORD
-# |_ PROD_DB_DATABASE
+# |_DB_USER (craft CMS variable)
+# |_DB_PASSWORD (craft CMS variable)
+# |_DB_DATABASE (craft CMS variable)
+# |_HOME_PATH
+# |_WEB_DIR
+# |_ASSETS_DIR (craft CMS variables)
+# |_ASSETS_ARE_LOCAL
+# |_STAG_SSH_HOST
+# |_STAG_USER
+# |_STAG_HOME_PATH
+# |_STAG_DB_HOST
+# |_STAG_DB_USER
+# |_STAG_DB_PASSWORD
+# |_STAG_DB_DATABASE
+# |_PROD_SSH_HOST
+# |_PROD_USER
+# |_PROD_HOME_PATH
+# |_PROD_DB_HOST
+# |_PROD_DB_USER
+# |_PROD_DB_PASSWORD
+# |_PROD_DB_DATABASE
 
 # Import env variables
 source .env
