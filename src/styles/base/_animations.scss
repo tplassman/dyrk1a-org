@@ -1,0 +1,87 @@
+/**
+ * Animations
+ */
+
+// easeOutExpo (https://matthewlein.com/tools/ceaser)
+$animate-profile: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+$animate-speed-xs: 0.1s;
+$animate-speed-sm: 0.2s;
+$animate-speed-md: 0.3s;
+$animate-speed-lg: 0.5s;
+$animate-speed-xl: 0.8s;
+$animate-xs:       $animate-speed-xs $animate-profile;
+$animate-sm:       $animate-speed-sm $animate-profile;
+$animate-md:       $animate-speed-md $animate-profile;
+$animate-lg:       $animate-speed-lg $animate-profile;
+$animate-xl:       $animate-speed-xl $animate-profile;
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes from-left {
+    from { transform: translateX(-$spacing-sm); }
+    to { transform: translate(0, 0); }
+}
+
+@keyframes from-right {
+    from { transform: translateX($spacing-sm); }
+    to { transform: translate(0, 0); }
+}
+
+@keyframes from-bottom {
+    from { transform: translateY($spacing-sm); }
+    to { transform: translateY(0); }
+}
+
+@keyframes reveal-up {
+    from { transform: scaleY(1); }
+    to { transform: scaleY(0); }
+}
+
+@keyframes reveal-over {
+    from { transform: scaleX(1); }
+    to { transform: scaleX(0); }
+}
+
+@mixin fadeIn() {
+    opacity: 0;
+    animation: fade-in $animate-md forwards;
+}
+
+@mixin fromBottom() {
+    opacity: 0;
+    animation:
+        from-bottom $animate-md,
+        fade-in $animate-md forwards;
+}
+
+@mixin fromLeft() {
+    opacity: 0;
+    animation:
+        from-left $animate-md,
+        fade-in $animate-md forwards;
+}
+
+@mixin reveal($from: "left") {
+    position: relative;
+
+    &:before {
+        @include fullOverlay;
+        content: "";
+        z-index: 1;
+        transform-origin: $from;
+        background-color: $color-white;
+
+        @if ($from == "top" or $from == "bottom") {
+            animation: reveal-up $animate-lg forwards;
+        } @else if ($from == "left" or $from == "right") {
+            animation: reveal-over $animate-lg forwards;
+        }
+    }
+
+    > * {
+        position: relative;
+    }
+}

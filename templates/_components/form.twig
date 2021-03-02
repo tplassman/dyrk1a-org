@@ -1,0 +1,44 @@
+{##
+ # Form component
+ # @param {string} heading
+ # @param {HTML} body
+ # @param {modules\forms\contracts\Form} form
+ # @param {string} successMessage
+ #}
+
+{# Params #}
+{% set heading = heading|default('') %}
+{% set body = body|default('') %}
+{% set form = form|default(null) %}
+{% set successMessage = successMessage|default('') %}
+
+{# Variables #}
+{% set handle = 'newsletter' %}
+
+<div class="{{ handle }}" id="form-component">
+    <h3>{{ heading }}</h3>
+    {{ body }}
+    {% if successMessage %}
+        <p>{{ successMessage }}</p>
+    {% elseif form %}
+        {% set fields = form.getFields() %}
+
+        <form
+            action="#form-component"
+            method="{{ form.method }}"
+            {{ constant('CRAFT_ENVIRONMENT') == 'development' ? 'novalidate' }}>
+            {{ csrfInput() }}
+            {{ actionInput(form.getActionPath()) }}
+            {{ hiddenInput('handle', form.getHandle()|hash) }}
+
+            {% for f in fields %}
+                {% include '_components/input' with {
+                    form: form,
+                    name: f,
+                } %}
+            {% endfor %}
+
+            <input type="submit" value="{{ form.getSubmitText() }}" class="button" />
+        </form>
+    {% endif %}
+</div>

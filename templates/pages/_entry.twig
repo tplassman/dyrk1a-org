@@ -1,0 +1,67 @@
+{##
+ # Page entry
+ # @controller {modules\forms\contracts\form} form
+ # @flash {array} successMessage
+ # @param {Entry} entry <page>
+ # |_@param {Matrix} pageHeader
+ # |_@param {Matrix} pageSections
+ # |_@param {SuperTable} metaData
+ #}
+
+{# Controller #}
+{% set form = form|default(null) %}
+
+{# Flash #}
+{% set successMessage = craft.app.session.getFlash('successMessage', []) %}
+
+{# Params #}
+{# Have to name this headerBlock to avoid collision with "header" GlobalSet #}
+{% set headerBlock = entry.pageHeader.one() %}
+{% set sections = entry.pageSections.all() %}
+
+{# Globals #}
+{% set metaTitle = entry.metaData.metaTitle|default('') %}
+{% set metaDescription = entry.metaData.metaDescription|default('') %}
+{% set metaFeaturedImage = entry.metaData.metaFeaturedImage.one() %}
+{% if metaFeaturedImage %}
+    {% set metaFeaturedImageUrl = metaFeaturedImage.url %}
+{% endif %}
+
+{# Markup #}
+{% extends '_layouts/main' %}
+
+{% block content %}
+    <article>
+        {% if headerBlock %}
+            {% switch headerBlock.type.handle %}
+            {% case 'hero' %}
+                {% include '_components/hero' with {
+                    heading: headerBlock.heading,
+                    subheading: headerBlock.subheading,
+                    ctas: headerBlock.ctas.all()|map(c => craft.components.getLink(c)),
+                    backgroundImage: craft.components.getMediaItem(headerBlock.backgroundImage.one()),
+                } only %}
+            {% endswitch %}
+        {% endif %}
+
+        {% for section in sections %}
+            {% switch section.type.handle %}
+            {% case 'intro' %}
+                {% include '_components/intro' with {
+                    heading: section.heading,
+                    body: section.body,
+                    backgroundImage: craft.components.getMediaItem(section.backgroundImage.one()),
+                } only %}
+            {% case 'contactForm' %}
+                {% include '_components/form' with {
+                    heading: section.heading,
+                    body: section.body,
+                    form: form and form.getHandle() == 'contact'
+                        ? form
+                        : craft.forms.newForm('contact'),
+                    successMessage: successMessage['contact'] ?? '',
+                } only %}
+            {% endswitch %}
+        {% endfor %}
+    </article>
+{% endblock %}

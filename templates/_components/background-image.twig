@@ -1,0 +1,47 @@
+{##
+ # Background image component
+ # @param {string} url
+ # @param {string} url2x
+ # @param {string} position
+ # @param {string} repeat
+ # @param {string} size
+ # @param {float} breakpoint
+ #}
+
+{# Params #}
+{% set url = url is defined and url ? url : '' %}
+{% set url2x = url2x is defined and url2x ? url2x : url %}
+{% set position = position is defined and position ? position : 'center center' %}
+{% set size = size is defined and size ? size : 'cover' %}
+{% set repeat = repeat is defined and repeat ? repeat : 'no-repeat' %}
+{% set breakpoint = breakpoint is defined and breakpoint ? breakpoint : 992 %}
+
+{# Variables #}
+{% set uniqueClass = craft.components.uniqueId() %}
+{% set handle = 'background-image' %}
+
+{# Markup #}
+<style type="text/css">
+    .{{ uniqueClass }} {
+        background-position: {{ position }};
+        background-size: {{ size }};
+        background-repeat: {{ repeat }};
+    }
+
+    @media (max-width: {{ breakpoint - 1 }}px) {
+        .{{ uniqueClass }} {
+            background-image: url({{ url }});
+        }
+    }
+
+    @media (min-width: {{ breakpoint }}px) {
+        .{{ uniqueClass }} {
+            background-image: url({{ url2x }});
+        }
+    }
+</style>
+
+<div class="{{ handle }}">
+    <div class="{{ uniqueClass }} {{ handle }}__image-cont {{ handle }}__image-cont--mobile"></div>
+    <div class="{{ uniqueClass }} {{ handle }}__image-cont {{ handle }}__image-cont--desktop"></div>
+</div>

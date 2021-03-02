@@ -1,0 +1,119 @@
+field: 15661465-314f-4027-85fd-86430d462ffd
+fieldLayouts:
+  0ad346b7-0d40-444d-a9bb-2351281c4654:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: e60d12ab-9e7d-4f04-a084-23fa88075a1d
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: fd4ff620-2f52-4690-a80b-bf27d8f7f362
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ab1a52b0-b93a-4628-b158-f8ae39867928
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  ab1a52b0-b93a-4628-b158-f8ae39867928:
+    contentColumnType: string
+    fieldGroup: null
+    handle: backgroundImage
+    instructions: ''
+    name: 'Background Image'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:f77a6325-e40c-455f-a422-3aa22dd73ccf'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: 'Add a background image'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:f77a6325-e40c-455f-a422-3aa22dd73ccf'
+      singleUploadLocationSubpath: background-images
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  e60d12ab-9e7d-4f04-a084-23fa88075a1d:
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  fd4ff620-2f52-4690-a80b-bf27d8f7f362:
+    contentColumnType: text
+    fieldGroup: null
+    handle: body
+    instructions: ''
+    name: Body
+    searchable: false
+    settings:
+      availableTransforms: '*'
+      availableVolumes: ''
+      cleanupHtml: true
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Simple.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showHtmlButtonForNonAdmins: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+handle: intro
+name: Intro
+sortOrder: 1

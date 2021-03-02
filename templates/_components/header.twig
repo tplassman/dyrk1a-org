@@ -1,0 +1,32 @@
+{##
+ # Header component
+ # @param {modules\components\models\MediaItem} logo
+ #}
+
+{# Params #}
+{% set logo = logo|default(null) %}
+
+{# Variables #}
+{% set id = craft.components.uniqueId() %}
+{% set handle = 'header' %}
+
+{# Markup #}
+{% import '_macros/components' as components %}
+
+<div id="{{ id }}" class="{{ handle }}">
+    <div class="{{ handle }}__fix-cont">
+        <div class="{{ handle }}__cont">
+            <a href="{{ siteUrl() }}" title="{{ siteName }}">
+                {% if logo %}
+                    {{ logo.render() }}
+                {% else %}
+                    <h1>{{ siteName }}</h1>
+                {% endif %}
+            </a>
+        </div>
+    </div>
+
+    {{ components.new(handle, {
+        id: id,
+    }) }}
+</div>

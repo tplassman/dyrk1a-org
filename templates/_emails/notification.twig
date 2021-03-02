@@ -1,0 +1,19 @@
+{##
+ # Contact Form notification email
+ # @param {string} heading
+ # @param {string} body
+ #}
+
+{% extends '_layouts/email' %}
+
+{# Params #}
+{% set heading = heading|default('') %}
+{% set body = body|default('') %}
+
+{# Markup #}
+{% import '_macros/emails' as emails %}
+
+{% block content %}
+    {{ emails.paragraph(heading, 'body-xl') }}
+    {{ emails.paragraph(body) }}
+{% endblock %}

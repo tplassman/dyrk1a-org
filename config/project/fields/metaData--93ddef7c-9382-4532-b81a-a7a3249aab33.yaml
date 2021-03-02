@@ -1,0 +1,18 @@
+contentColumnType: string
+fieldGroup: 507aac0f-ead6-41ed-88e8-5b2c8d3dba2c
+handle: metaData
+instructions: ''
+name: 'Meta Data'
+searchable: false
+settings:
+  contentTable: '{{%stc_metadata}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  placeholderKey: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

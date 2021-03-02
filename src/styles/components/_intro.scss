@@ -1,0 +1,21 @@
+$handle: "intro";
+
+.#{$handle} {
+    position: relative;
+
+    &__text-cont {
+        @include valign;
+        @include container;
+        @include space($spacing-lg);
+        position: relative;
+        text-align: center;
+
+        > h2 {
+            @include type("heading-lg");
+        }
+
+        > div {
+            margin-top: $spacing-sm;
+        }
+    }
+}

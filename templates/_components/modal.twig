@@ -1,0 +1,29 @@
+{##
+ # Modal component
+ #}
+
+{# Variables #}
+{% set id = craft.components.uniqueId() %}
+{% set handle = 'modal' %}
+{% set contentHandle = handle ~ '__content' %}
+{% set closeHandle = handle ~ '__close' %}
+{% set activeClass = 'is-active' %}
+
+{# Markup #}
+{% import '_macros/components' as components %}
+
+<div id="{{ id }}" class="{{ handle }}">
+    <div class="{{ handle }}__card-cont">
+        <div class="{{ contentHandle }}"></div>
+        <button type="button" title="Close" class="{{ closeHandle }}">
+            {% include '_components/icon' with { icon: 'x' } %}
+        </button>
+    </div>
+
+    {{ components.new(handle, {
+        id: id,
+        contentHandle: '.' ~ contentHandle,
+        closeHandle: '.' ~ closeHandle,
+        activeClass: activeClass,
+    }) }}
+</div>

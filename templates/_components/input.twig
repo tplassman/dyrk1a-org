@@ -1,0 +1,74 @@
+{##
+ # Input component
+ # @param {modules\components\forms\Form} form
+ # @param {string} name
+ #}
+
+{# Params #}
+{% set form = form|default(null) %}
+{% set name = name|default('') %}
+
+{# Variables #}
+{% set id = craft.components.uniqueId() %}
+{% set handle = 'input' %}
+
+{% set type = form.getAttributeInputType(name) %}
+{% set options = form.getAttributeInputOptions(name) %}
+{% set value = form[name] %}
+{% set required = form.isAttributeRequired(name) %}
+{% set label = form.getAttributeLabel(name) %}
+{% set errors = form.getErrors(name) %}
+{% set conditional = form.getAttributeInputConditional(name) %}
+
+{# Markup #}
+{% import '_macros/components' as components %}
+
+<div
+    id="{{ id }}"
+    class="
+        {{ handle }}
+        {{ handle }}--{{ type }}
+    ">
+    {% if type != 'hidden' and label is not empty %}
+        <label for="{{ name }}">{{ label }}</label>
+    {% endif %}
+
+    {% switch type %}
+    {% case 'textarea' %}
+        <textarea
+            id="{{ name }}"
+            name="{{ name }}"
+            rows="1"
+            {{ required ? 'required' }}>{{ value }}</textarea>
+    {% case 'select' %}
+        <div>
+            <select name="{{ name }}">
+                {% for option in options %}
+                    <option
+                        value="{{ option.value }}"
+                        {{ option.value == value ? 'selected' }}
+                        {{ option.disabled|default(false) ? 'disabled' }}>{{ option.label|raw }}</option>
+                {% endfor %}
+            </select>
+            {% include '_components/icon' with { icon: 'chevron-down' } %}
+        </div>
+    {% default %}
+        <input
+            type="{{ type }}"
+            id="{{ name }}"
+            name="{{ name }}"
+            {% if type == 'hidden' %}
+                value="{{ value|hash }}"
+            {% else %}
+                value="{{ value }}"
+            {% endif %}
+            {{ required ? 'required' }} />
+    {% endswitch %}
+
+    <p>{{ errors|join("\n")|nl2br }}</p>
+
+    {{ components.new(handle, {
+        id: id,
+        conditional: conditional,
+    }) }}
+</div>

@@ -1,0 +1,67 @@
+field: 6b673433-69e8-47af-8bda-190f2aec10a7
+fieldLayouts:
+  4546fab7-1bda-428e-b241-2ac16e88673a:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: d836a2a2-21d7-4557-be43-44fcb8c49cd5
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 264b7fb0-21b0-4faa-825a-1be7019f9da2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  264b7fb0-21b0-4faa-825a-1be7019f9da2:
+    contentColumnType: string
+    fieldGroup: null
+    handle: ctaPage
+    instructions: ''
+    name: 'CTA Page'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: 'Add a CTA page'
+      showSiteMenu: false
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  d836a2a2-21d7-4557-be43-44fcb8c49cd5:
+    contentColumnType: text
+    fieldGroup: null
+    handle: ctaTitle
+    instructions: ''
+    name: 'CTA Title'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

@@ -1,0 +1,69 @@
+{##
+ # Email layout
+ # @param {string} title
+ #}
+
+{# Params #}
+{% set title = title|default('Notification') %}
+
+{# Markup #}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" style="margin: 0; padding: 0;">
+    <head>
+        <title>{{ title }}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="x-apple-disable-message-reformatting">
+
+        <style type="text/css">
+            a {
+                text-decoration: none !important; /* Extra styles for anchors inserted by an email service (Campaign Monitor) */
+            }
+        </style>
+
+        <!--[if mso]>
+            <style type="text/css">
+            body,
+            table,
+            td,
+            a,
+            a span {
+            font-family: Helvetica, Arial, sans-serif !important;
+            }
+            </style>
+        <![endif]-->
+        <!--[if gte mso 9]>
+            <xml>
+            <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+            </xml>
+        <![endif]-->
+    </head>
+
+    <body>
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr style="border-collapse: collapse;">
+                <td width="100%" style="-webkit-text-size-adjust: none; border-collapse: collapse; vertical-align: top;">
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color: #ffffff; min-width: 600px; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 600px;">
+                        <!-- CONTENT -->
+                        <tr style="border-collapse: collapse;">
+                            <td style="-webkit-text-size-adjust: none; border-collapse: collapse; min-width: 7.5%; vertical-align: top; width: 7.5%;"></td>
+                            <td style="-webkit-text-size-adjust: none; border-collapse: collapse; min-width: 85%; vertical-align: top; width: 85%;">
+                                {% block content %}{% endblock %}
+                            </td>
+                            <td style="-webkit-text-size-adjust: none; border-collapse: collapse; min-width: 7.5%; vertical-align: top; width: 7.5%;"></td>
+                        </tr>
+                        <!-- CONTENT -->
+                    </table>
+                    <!-- / MAIN -->
+                </td>
+            </tr>
+        </table>
+        <div class="gmail-zoom-fix" style="-webkit-text-size-adjust: none; display: none; font: 15px courier; line-height: 0; white-space: nowrap;">
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        </div>
+    </body>
+</html>

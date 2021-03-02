@@ -1,0 +1,138 @@
+field: 37ac90e1-0481-40df-8732-647e110a30bc
+fieldLayouts:
+  9fbcc6e6-254d-4fb1-a27b-5214437337cb:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: c6a92f18-a0d0-41f0-8536-8b004e004bcb
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 02b672b8-da56-4938-9aeb-e2c3354a3ff4
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6b673433-69e8-47af-8bda-190f2aec10a7
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1f1fe641-7c0c-47e7-838a-e5d751b6adbc
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  02b672b8-da56-4938-9aeb-e2c3354a3ff4:
+    contentColumnType: text
+    fieldGroup: null
+    handle: subheading
+    instructions: ''
+    name: Subheading
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  1f1fe641-7c0c-47e7-838a-e5d751b6adbc:
+    contentColumnType: string
+    fieldGroup: null
+    handle: backgroundImage
+    instructions: ''
+    name: 'Background Image'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:f77a6325-e40c-455f-a422-3aa22dd73ccf'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: 'Add a background image'
+      showSiteMenu: false
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:f77a6325-e40c-455f-a422-3aa22dd73ccf'
+      singleUploadLocationSubpath: background-images
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  6b673433-69e8-47af-8bda-190f2aec10a7:
+    contentColumnType: string
+    fieldGroup: null
+    handle: ctas
+    instructions: ''
+    name: CTAs
+    searchable: false
+    settings:
+      contentTable: '{{%stc_ctas}}'
+      fieldLayout: table
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationMethod: all
+      selectionLabel: 'Add a CTA'
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  c6a92f18-a0d0-41f0-8536-8b004e004bcb:
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: hero
+name: Hero
+sortOrder: 1

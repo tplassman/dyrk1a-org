@@ -1,0 +1,22 @@
+$handle: "background-image";
+
+.#{$handle} {
+    @include fullOverlay();
+
+    &__image-cont {
+        @include fullOverlay();
+        display: none;
+
+        &--mobile {
+            @include media($max: "sm") {
+                display: block;
+            }
+        }
+
+        &--desktop {
+            @include media("md") {
+                display: block;
+            }
+        }
+    }
+}

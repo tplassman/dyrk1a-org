@@ -1,0 +1,60 @@
+$handle: "modal";
+$active-class: "is-active";
+
+.#{$handle} {
+    position: fixed;
+    z-index: -1;
+    opacity: 0;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color-black, 0.5);
+
+    &.#{$active-class} {
+        z-index: 1000;
+        opacity: 1;
+    }
+
+    &__card-cont {
+        position: relative;
+        background-color: $color-white;
+        transition: transform 0.2s linear;
+
+        @include media($max: "xs") {
+            @include sideRounded("top");
+            transform: translateY(100vh);
+            min-height: calc(100vh - #{$spacing-md});
+            margin-top: $spacing-md;
+            padding-bottom: $spacing-md * 3; // Accommodate for fixed toolbar in mobile Safari
+        }
+
+        @include media("sm") {
+            @include sideRounded("left");
+            transform: translateX($max-width-lg);
+            max-width: $max-width-lg;
+            min-height: 100vh;
+            margin: 0 0 0 auto;
+        }
+
+        .#{$handle}.#{$active-class} & {
+            transform: translateY(0);
+        }
+
+        > div {
+            padding-top: $spacing-lg;
+        }
+
+        > button {
+            @include actionButton;
+            @include absolute($spacing-sm, $spacing-sm);
+
+            @include media("sm") {
+                right: auto;
+                left: $spacing-sm;
+            }
+        }
+    }
+}

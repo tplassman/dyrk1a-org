@@ -1,0 +1,11 @@
+enableVersioning: true
+handle: formSubmissions
+name: 'Form Submissions'
+propagationMethod: all
+siteSettings:
+  736fda4c-e7f8-4184-98cd-f61f47b78d22:
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: channel

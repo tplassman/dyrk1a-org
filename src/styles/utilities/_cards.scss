@@ -1,0 +1,15 @@
+@mixin card($size: "sm") {
+    @include shadow;
+    @include rounded($size);
+    background-color: $color-white;
+
+    @if ($size == "sm") {
+        padding: $spacing-xs;
+    } @else if ($size = "md") {
+        padding: $spacing-sm;
+    }
+
+    @include media("sm") {
+        padding: $spacing-sm;
+    }
+}

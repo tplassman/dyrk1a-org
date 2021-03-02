@@ -1,0 +1,17 @@
+{% macro paragraph(content, type = 'body-md') %}
+    {% set fontSize = '16px' %}
+    {% set lineHeight = '20px' %}
+
+    {% switch type %}
+    {% case 'body-xl' %}
+        {% set fontSize = '30px' %}
+        {% set lineHeight = '40px' %}
+    {% case 'body-lg' %}
+        {% set fontSize = '20px' %}
+        {% set lineHeight = '28px' %}
+    {% endswitch %}
+
+    <p style="-webkit-text-size-adjust: none; color: #424a4d; font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'HelveticaNeue-Roman', 'Helvetica Neue Roman', 'TeXGyreHerosRegular', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif; font-size: {{ fontSize }}; font-weight: 700; line-height: {{ lineHeight }}; margin: 0 0 18px; margin-bottom: 18px; margin-top: 0;">
+        {{ content }}
+    </p>
+{% endmacro %}

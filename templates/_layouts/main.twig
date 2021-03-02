@@ -1,0 +1,33 @@
+{##
+ # Main layout
+ # @block {HTML} content
+ # @global {GlobalSet} header
+ # |_@global {Assets} logo
+ # @global {GlobalSet} footer
+ # |_@global {Assets} logo
+ #}
+
+{# Markup #}
+{% extends '_layouts/html' %}
+
+{% block body %}
+    <header>
+        {% include '_components/header' with {
+            logo: craft.components.getMediaItem(header.logo.one()),
+        } only %}
+    </header>
+
+    <main id="main-content">
+        {% include '_components/main' with {
+            content: block('content')|replace({
+                '®': '<sup>&reg;</sup>',
+            })|raw,
+        } only %}
+    </main>
+
+    <footer>
+        {% include '_components/footer' with {
+            logo: craft.components.getMediaItem(footer.logo.one()),
+        } only %}
+    </footer>
+{% endblock %}

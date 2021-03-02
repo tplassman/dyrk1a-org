@@ -1,0 +1,22 @@
+$handle: "header";
+
+.#{$handle} {
+    padding-bottom: $header-height;
+
+    &__fix-cont {
+        @include shadow;
+        display: flex;
+        align-items: center;
+        position: fixed;
+        z-index: 10;
+        width: 100%;
+        height: $header-height;
+        background-color: $color-white;
+    }
+
+    &__cont {
+        @include container;
+        display: flex;
+        align-items: center;
+    }
+}

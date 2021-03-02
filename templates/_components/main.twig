@@ -1,0 +1,22 @@
+{##
+ # Main component
+ # @param {string} content
+ #}
+
+{# Params #}
+{% set content = content|default('') %}
+
+{# Variables #}
+{% set id = craft.components.uniqueId() %}
+{% set handle = 'main' %}
+
+{# Markup #}
+{% import '_macros/components' as components %}
+
+<div id="{{ id }}" class="{{ handle }}">
+    {{ content|raw }}
+
+    {{ components.new(handle, {
+        id: id,
+    }) }}
+</div>

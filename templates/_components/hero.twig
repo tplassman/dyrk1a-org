@@ -1,0 +1,32 @@
+{##
+ # Hero component
+ # @param {string} heading
+ # @param {string} subheading
+ # @param {modules\components\models\Link[]} ctas
+ # @param {modules\components\models\MediaItem} backgroundImage
+ #}
+
+{# Params #}
+{% set heading = heading|default('') %}
+{% set subheading = subheading|default('') %}
+{% set ctas = ctas|default([]) %}
+{% set backgroundImage = backgroundImage|default(null) %}
+
+{# Variables #}
+{% set handle = 'hero' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+    {% if backgroundImage %}
+        {% include '_components/background-image' with { url: backgroundImage.url } %}
+    {% endif %}
+    <div class="{{ handle }}__text-cont">
+        <h1>{{ heading }}</h1>
+        <h3>{{ subheading }}</h3>
+        <nav>
+            {% for c in ctas %}
+                {{ c.render() }}
+            {% endfor %}
+        </nav>
+    </div>
+</div>

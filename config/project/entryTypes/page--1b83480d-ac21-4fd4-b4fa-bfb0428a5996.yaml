@@ -1,0 +1,82 @@
+fieldLayouts:
+  9ecdd1c6-1d68-423c-bcf8-be6264e20db5:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: beadce26-b138-4cc0-a9f4-649c1a4910d9
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 37ac90e1-0481-40df-8732-647e110a30bc
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Header
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 15661465-314f-4027-85fd-86430d462ffd
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Sections
+        sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: 93ddef7c-9382-4532-b81a-a7a3249aab33
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Meta
+        sortOrder: 3
+handle: page
+hasTitleField: false
+name: Page
+section: aa8246ab-08e2-408d-ad0e-088dbdefcee7
+sortOrder: 1
+titleFormat: '{pageName}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

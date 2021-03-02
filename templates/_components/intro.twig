@@ -1,0 +1,25 @@
+{##
+ # Intro component
+ # @param {string} heading
+ # @param {HTML} body
+ # @param {modules\components\models\MediaItem} backgroundImage
+ #}
+
+{# Params #}
+{% set heading = heading|default('') %}
+{% set body = body|default('') %}
+{% set backgroundImage = backgroundImage|default(null) %}
+
+{# Variables #}
+{% set handle = 'intro' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+    {% if backgroundImage %}
+        {% include '_components/background-image' with { url: backgroundImage.url } %}
+    {% endif %}
+    <div class="{{ handle }}__text-cont">
+        <h2>{{ heading }}</h2>
+        <div>{{ body }}</div>
+    </div>
+</div>

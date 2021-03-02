@@ -1,0 +1,15 @@
+import 'core-js/stable';
+import 'classlist-polyfill';
+// https://github.com/stefanpenner/es6-promise#auto-polyfill
+import 'es6-promise/auto';
+import 'formdata-polyfill';
+import 'intersection-observer';
+import 'svgxuse';
+import './array-find';
+import './array-findindex';
+import './array-from';
+import './element-closest';
+import './object-assign';
+import './string-includes';
+import './window-customevent';
+import './window-requestanimationframe';

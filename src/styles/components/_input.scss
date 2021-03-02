@@ -1,0 +1,87 @@
+$handle: "input";
+$active-class: "is-active";
+
+.#{$handle} {
+    position: relative;
+    text-align: left;
+
+    &--hidden {
+        margin: 0 !important;
+    }
+
+    &--select {
+        > div {
+            position: relative;
+
+            > select {
+                @include input;
+                line-height: $input-height - 2; // compensate for borders
+                padding-right: $spacing-xs * 3;
+                cursor: pointer;
+
+                > option {
+                    &:disabled {
+                        color: #5E5656;
+                    }
+                }
+            }
+
+            > i {
+                @include centerer(false, true);
+                z-index: 1;
+                right: $spacing-xs;
+                width: $spacing-xs;
+                height: $spacing-xs;
+                fill: $color-red;
+                pointer-events: none;
+            }
+        }
+    }
+
+    > label {
+        z-index: 1;
+        background-color: $color-white;
+        cursor: text;
+    }
+
+    > textarea,
+    > input {
+        @include type("body-md");
+        @include pad($spacing-xs);
+        display: block;
+        position: relative;
+        width: 100%;
+        line-height: $spacing-md;
+        border: 1px solid $color-br-gray-lt;
+        color: $color-fg-gray-dk;
+        background-color: $color-white;
+
+        &.#{$error-class} {
+            background-color: lighten(red, 50%);
+            border-color: $color-red;
+        }
+
+        &:active,
+        &:focus {
+            // background-color: lighten($color-cyan, 50%);
+            // border-color: $color-cyan;
+        }
+    }
+
+    > textarea {
+        height: $input-height * 1.5;
+        line-height: $spacing-sm;
+        padding-top: $spacing-xs;
+    }
+
+    > p {
+        @include type("body-sm");
+        @include pad($spacing-xs);
+        width: 100%; // Make sure to always break to new line
+        color: $color-red;
+
+        &:empty {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+# System Files
+.DS_Store
+.php_cs.cache
+
+# Please configure Craft to use this directory for managed assets
+public_html/uploads
+
+# Craft 3's .env file
+.env
+
+# Composer
+vendor/
+
+# NPM
+# For consistency, please install packages using NPM (not Bower) whenever possible
+node_modules/

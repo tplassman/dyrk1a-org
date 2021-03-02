@@ -1,0 +1,48 @@
+{# Variables #}
+{% set metaNoIndex = metaNoIndex is defined and metaNoIndex %}
+{% set metaCanonical = metaCanonical|default('') %}
+{% set metaTitle = metaTitle|default(siteName) %}
+{% set metaDescription = metaDescription|default('') %}
+{% set metaFeaturedImageUrl = metaFeaturedImageUrl|default('') %}
+
+{# Markup #}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+{# Robots noindex (development and staging only) #}
+{% if constant('CRAFT_ENVIRONMENT') != 'production' or metaNoIndex %}
+    <meta name="robots" content="noindex, nofollow" />
+{% endif %}
+
+{% if metaCanonical is not empty %}
+    <link rel="canonical" href="{{ metaCanonical }}" />
+{% endif %}
+
+{# Main meta information and icon #}
+<title>{{ metaTitle }}</title>
+
+<meta name="description" content="{{ metaDescription }}" />
+<link rel="home" href="{{ siteUrl() }}" />
+
+{# Open Graph meta tags #}
+<meta property="og:site_name" content="{{ siteName }}" />
+<meta property="og:url" content="{{ craft.app.request.absoluteUrl }}" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{ metaTitle }}" />
+<meta property="og:description" content="{{ metaDescription }}" />
+<meta property="og:image" content="{{ metaFeaturedImageUrl }}" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="314" />
+
+{# Twitter card meta tags #}
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:url" content="{{ craft.app.request.absoluteUrl }}" />
+<meta name="twitter:title" content="{{ metaTitle }}" />
+<meta name="twitter:description" content="{{ metaDescription }}" />
+<meta name="twitter:image" content="{{ metaFeaturedImageUrl }}" />
+
+<meta name="author" content="wrayward.com" />
+
+{# Web app manifest #}
+<link rel="manifest" href="/site.webmanifest" />

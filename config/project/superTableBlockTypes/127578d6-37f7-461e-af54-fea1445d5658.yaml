@@ -1,0 +1,107 @@
+field: 93ddef7c-9382-4532-b81a-a7a3249aab33
+fieldLayouts:
+  f25a948d-cd91-4a12-a0f0-d986adc9617f:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 6c56967d-eec6-4e2f-a332-3dab47903fc2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 96a3eebb-72f6-4cf8-ae69-e7df0ee6244d
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 64b2b2e7-4962-4df4-8bfd-472d866e4618
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  64b2b2e7-4962-4df4-8bfd-472d866e4618:
+    contentColumnType: string
+    fieldGroup: null
+    handle: metaFeaturedImage
+    instructions: ''
+    name: 'Meta Featured Image'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:f77a6325-e40c-455f-a422-3aa22dd73ccf'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: 'Add a meta featured image'
+      showSiteMenu: false
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:f77a6325-e40c-455f-a422-3aa22dd73ccf'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  6c56967d-eec6-4e2f-a332-3dab47903fc2:
+    contentColumnType: string(400)
+    fieldGroup: null
+    handle: metaTitle
+    instructions: ''
+    name: 'Meta Title'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: 100
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  96a3eebb-72f6-4cf8-ae69-e7df0ee6244d:
+    contentColumnType: string(1200)
+    fieldGroup: null
+    handle: metaDescription
+    instructions: ''
+    name: 'Meta Description'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: 300
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

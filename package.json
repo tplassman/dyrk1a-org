@@ -1,0 +1,63 @@
+{
+	"name": "dyrk1a-org",
+	"version": "1.0.0",
+	"description": "DYRK1A Syndrome",
+	"main": "public_html/scripts/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"author": {
+		"name": "Trevor Plassman",
+		"url": "https://www.plassmans.com/trevor"
+	},
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/core": "^7.6.2",
+		"@babel/preset-env": "^7.6.2",
+		"@babel/register": "^7.6.2",
+		"acorn": "^6.4.1",
+		"ajv": "^5.5.2",
+		"babelify": "^10.0.0",
+		"browserify": "^16.5.0",
+		"del": "^4.1.1",
+		"dotenv": "^8.1.0",
+		"envify": "^4.1.0",
+		"eslint": "^5.16.0",
+		"eslint-config-airbnb-base": "^13.1.0",
+		"eslint-plugin-import": "^2.18.2",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^6.1.0",
+		"gulp-cheerio": "^0.6.2",
+		"gulp-clean-css": "^4.2.0",
+		"gulp-eslint": "^5.0.0",
+		"gulp-if": "^2.0.2",
+		"gulp-imagemin": "^6.1.0",
+		"gulp-livereload": "^4.0.2",
+		"gulp-sass": "^4.0.2",
+		"gulp-string-replace": "^1.1.2",
+		"gulp-stylelint": "^9.0.0",
+		"gulp-svgstore": "^7.0.1",
+		"gulp-uglify": "^3.0.2",
+		"stylelint": "^10.1.0",
+		"stylelint-order": "^3.1.1",
+		"vinyl-buffer": "^1.0.1",
+		"vinyl-source-stream": "^2.0.0",
+		"watchify": "^3.11.1"
+	},
+	"dependencies": {
+		"body-scroll-lock": "^2.7.1",
+		"classlist-polyfill": "^1.2.0",
+		"compop": "0.1.3",
+		"core-js": "^3.2.1",
+		"es6-promise": "^4.2.6",
+		"formdata-polyfill": "^3.0.19",
+		"intersection-observer": "^0.5.0",
+		"svgxuse": "^1.2.4",
+		"swiper": "^6.1.2",
+		"ui-utilities": "^0.5.0"
+	}
+}

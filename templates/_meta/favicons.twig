@@ -1,0 +1,48 @@
+{##
+ # https://css-tricks.com/favicon-quiz/
+ # http://jaydenseric.com/blog/favicon-optimization
+ # http://stackoverflow.com/questions/23557784/meta-name-msapplication-config-content-none-for-browserconfig-xml-not-work
+ # https://www.emergeinteractive.com/insights/detail/The-Essentials-of-FavIcons/
+ #}
+
+{# .ico is mostly deprecated but still used by our good friend legacy IE #}
+<link rel="icon" href="/favicon.ico" />
+
+{##
+ # Other popular sizes
+ # These are in reverse-size order because Edge will load the first one for use in a browser tab.
+ #}
+<link rel="icon" sizes="512x512" href="/favicon-512.png" type="image/png" />
+<link rel="icon" sizes="384x384" href="/favicon-384.png" type="image/png" />
+<link rel="icon" sizes="196x196" href="/favicon-196.png" type="image/png" />
+<link rel="icon" sizes="192x192" href="/favicon-192.png" type="image/png" />
+<link rel="icon" sizes="167x167" href="/favicon-167.png" type="image/png" />
+<link rel="icon" sizes="152x152" href="/favicon-152.png" type="image/png" />
+<link rel="icon" sizes="128x128" href="/favicon-128.png" type="image/png" />
+
+{##
+ # Add to Home Screen icon is a file named apple-touch-icon.png in the web root.
+ # https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
+ #}
+
+{##
+ # Safari pinned tab icon
+ # The color attribute defines the background color
+ # https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html
+ #}
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#132a45" />
+
+{##
+ # Don't forget browserconfig.xml for Windows tiles
+ # https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/samples/dn455106(v=vs.85)
+ #}
+<meta name="application-name" content="Global Plasma Solutions" />
+
+{##
+ # Use 16, 32, and 48 to generate .ico
+ # BE SURE TO compress your .png files prior to generating your .ico and pushing everything to production!
+ # `$ convert favicon-16.png favicon-32.png favicon-48.png favicon.ico`
+ #}
+<link rel="icon" sizes="48x48" href="/favicon-48.png" type="image/png" />
+<link rel="icon" sizes="32x32" href="/favicon-32.png" type="image/png" />
+<link rel="icon" sizes="16x16" href="/favicon-16.png" type="image/png" />

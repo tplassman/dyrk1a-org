@@ -1,0 +1,31 @@
+$handle: "hero";
+
+.#{$handle} {
+    position: relative;
+
+    &__text-cont {
+        @include valign;
+        @include container;
+        @include space($spacing-lg);
+        position: relative;
+        min-height: calc(100vh - #{$header-height});
+        color: $color-white;
+
+        > h1 {
+            @include type("heading-xl");
+        }
+
+        > h3 {
+            @include type("body-lg");
+            margin-top: $spacing-sm;
+        }
+
+        > nav {
+            > a {
+                @include button;
+                margin-top: $spacing-sm;
+                pointer-events: auto;
+            }
+        }
+    }
+}

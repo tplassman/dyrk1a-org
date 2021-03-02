@@ -1,0 +1,22 @@
+{##
+ # Footer component
+ # @param {modules\components\models\MediaItem} logo
+ #}
+
+{# Params #}
+{% set logo = logo|default(null) %}
+
+{# Variables #}
+{% set handle = 'footer' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+    <a href="{{ siteUrl() }}" title="{{ siteName }}">
+        {% if logo %}
+            {{ logo.render() }}
+        {% else %}
+            <h1>{{ siteName }}</h1>
+        {% endif %}
+    </a>
+    <p>&copy; Copyright {{ now|date('Y') }}</p>
+</div>
