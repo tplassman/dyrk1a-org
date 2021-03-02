@@ -39,7 +39,7 @@
                     heading: headerBlock.heading,
                     subheading: headerBlock.subheading,
                     ctas: headerBlock.ctas.all()|map(c => craft.components.getLink(c)),
-                    backgroundImage: craft.components.getMediaItem(headerBlock.backgroundImage.one()),
+                    backgroundImage: headerBlock.backgroundImage.one(),
                 } only %}
             {% endswitch %}
         {% endif %}
@@ -50,7 +50,7 @@
                 {% include '_components/intro' with {
                     heading: section.heading,
                     body: section.body,
-                    backgroundImage: craft.components.getMediaItem(section.backgroundImage.one()),
+                    backgroundImage: section.backgroundImage.one(),
                 } only %}
             {% case 'contactForm' %}
                 {% include '_components/form' with {

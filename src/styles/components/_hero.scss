@@ -6,10 +6,8 @@ $handle: "hero";
     &__text-cont {
         @include valign;
         @include container;
-        @include space($spacing-lg);
+        @include space($spacing-lg * 2, $spacing-lg);
         position: relative;
-        min-height: calc(100vh - #{$header-height});
-        color: $color-white;
 
         > h1 {
             @include type("heading-xl");

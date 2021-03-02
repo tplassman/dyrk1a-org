@@ -1,6 +1,6 @@
 {##
  # Footer component
- # @param {modules\components\models\MediaItem} logo
+ # @param {object} logo
  #}
 
 {# Params #}
@@ -13,7 +13,7 @@
 <div class="{{ handle }}">
     <a href="{{ siteUrl() }}" title="{{ siteName }}">
         {% if logo %}
-            {{ logo.render() }}
+            <img src="{{ logo.url }}" alt="{{ logo.title }}" />
         {% else %}
             <h1>{{ siteName }}</h1>
         {% endif %}

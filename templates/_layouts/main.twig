@@ -13,7 +13,8 @@
 {% block body %}
     <header>
         {% include '_components/header' with {
-            logo: craft.components.getMediaItem(header.logo.one()),
+            logo: header.logo.one(),
+            links: header.navLinks.all()|map(l => craft.components.getLink(l)),
         } only %}
     </header>
 
@@ -27,7 +28,7 @@
 
     <footer>
         {% include '_components/footer' with {
-            logo: craft.components.getMediaItem(footer.logo.one()),
+            logo: footer.logo.one(),
         } only %}
     </footer>
 {% endblock %}

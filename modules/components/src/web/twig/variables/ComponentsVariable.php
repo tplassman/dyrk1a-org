@@ -7,7 +7,6 @@ use craft\base\Element;
 use craft\elements\Asset;
 use craft\elements\MatrixBlock;
 use modules\components\models\Link;
-use modules\components\models\MediaItem;
 use verbb\supertable\elements\SuperTableBlockElement;
 
 class ComponentsVariable
@@ -119,38 +118,5 @@ class ComponentsVariable
             'title' => $title ?? $el->title,
             'url' => $el->url,
         ]));
-    }
-
-    public static function getMediaItem(Asset $asset = null, string $type = 'image'): ?MediaItem
-    {
-        if ($asset === null) {
-            return null;
-        }
-
-        return new MediaItem([
-            'imageUrl' => $asset->url,
-            'description' => $asset->title,
-            'type' => $type,
-        ]);
-    }
-
-    public static function getFirstDay(string $month, string $year): int
-    {
-        return mktime(0, 0, 0, (int) $month, 1, (int) $year);
-    }
-
-    public static function getDayOfWeek(int $timestamp): int
-    {
-        return getdate($timestamp)['wday'];
-    }
-
-    public static function getPrevMonth(int $timestamp): int
-    {
-        return strtotime(date('Y-m-d', $timestamp).' -1 month');
-    }
-
-    public static function getNextMonth(int $timestamp): int
-    {
-        return strtotime(date('Y-m-d', $timestamp).' +1 month');
     }
 }

@@ -1,4 +1,20 @@
 $handle: "footer";
 
 .#{$handle} {
+    @include media("lg") {
+        width: calc(100vw - #{$max-width-sm});
+        margin-right: 0;
+        margin-left: auto;
+    }
+
+    > a {
+        display: block;
+        max-width: $max-width-xs;
+        margin: 0 auto;
+    }
+
+    > p {
+        padding: $spacing-xs $spacing-sm;
+        text-align: center;
+    }
 }

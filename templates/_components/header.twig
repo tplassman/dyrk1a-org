@@ -1,10 +1,13 @@
 {##
  # Header component
- # @param {modules\components\models\MediaItem} logo
+ # @param {object} logo
+ # @param {modules\components\models\Link} links
  #}
 
 {# Params #}
 {% set logo = logo|default(null) %}
+{% set links = links|default([]) %}
+{% set summary = summary|default('You\'re Not Alone') %}
 
 {# Variables #}
 {% set id = craft.components.uniqueId() %}
@@ -14,16 +17,28 @@
 {% import '_macros/components' as components %}
 
 <div id="{{ id }}" class="{{ handle }}">
-    <div class="{{ handle }}__fix-cont">
-        <div class="{{ handle }}__cont">
-            <a href="{{ siteUrl() }}" title="{{ siteName }}">
-                {% if logo %}
-                    {{ logo.render() }}
-                {% else %}
-                    <h1>{{ siteName }}</h1>
-                {% endif %}
-            </a>
-        </div>
+    <input type="checkbox" id="nav-toggle" name="nav-toggle" style="display:none" aria-hidden="true" />
+    <div class="{{ handle }}__logo-cont">
+        <a href="/" title="Home">
+            {% if logo %}
+                <img src="{{ logo.url }}" alt="{{ logo.title }}" />
+            {% else %}
+                {{ siteName }}
+            {% endif %}
+        </a>
+    </div>
+    <div class="{{ handle }}__drawer-cont">
+        <p>{{ summary }}</p>
+        <nav>
+            {% for l in links %}
+                {{ l.render() }}
+            {% endfor %}
+        </nav>
+    </div>
+    <div class="{{ handle }}__toggle-cont">
+        <label for="nav-toggle">
+            <span></span><span></span>
+        </label>
     </div>
 
     {{ components.new(handle, {

@@ -1,4 +1,9 @@
 $handle: "main";
 
 .#{$handle} {
+    @include media("lg") {
+        width: calc(100vw - #{$max-width-sm});
+        margin-right: 0;
+        margin-left: auto;
+    }
 }

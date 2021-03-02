@@ -1,22 +1,235 @@
 $handle: "header";
 
 .#{$handle} {
-    padding-bottom: $header-height;
-
-    &__fix-cont {
-        @include shadow;
-        display: flex;
-        align-items: center;
+    &:before {
+        @include absolute(0, 0, auto, 0);
         position: fixed;
-        z-index: 10;
-        width: 100%;
-        height: $header-height;
-        background-color: $color-white;
+        height: $spacing-lg;
+        background-image: linear-gradient($color-white, transparent);
+        pointer-events: none;
+
+        @include media($max: "md") {
+            content: "";
+        }
     }
 
-    &__cont {
-        @include container;
+    &__logo-cont {
+        @include absolute($spacing-xs * 3, auto, auto, $spacing-sm);
+        position: fixed;
+        z-index: 11;
+
+        @include media("md") {
+            top: $spacing-md;
+            left: $spacing-md;
+        }
+
+        > a {
+            > img {
+                display: block;
+                width: 100%;
+                max-width: $spacing-xl;
+
+                @include media("md") {
+                    max-width: 165px;
+                }
+            }
+        }
+    }
+
+    &__drawer-cont {
+        @include absolute(0, auto, 0, 0);
+        @include pad($spacing-sm);
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        position: fixed;
+        opacity: 0;
+        z-index: -1;
+        width: 100%;
+        transition: opacity $animate-sm;
+        background-color: $color-white;
+
+        @include media("md") {
+            @include pad($spacing-md);
+        }
+
+        @include media("lg") {
+            opacity: 1;
+            z-index: 10;
+            width: $max-width-sm;
+            padding-top: 25vh;
+            border-right: 1px solid $color-br-gray-lt;
+        }
+
+        [name="nav-toggle"]:checked ~ & {
+            opacity: 1;
+            z-index: 10;
+        }
+
+        &:after {
+            @include absolute(auto, 0, 0, 0);
+            content: "";
+            height: $spacing-lg * 2;
+        }
+
+        > p {
+            position: relative;
+            opacity: 0;
+            transform: translateX(-100%);
+            max-width: $max-width-xs;
+            padding-bottom: $spacing-sm;
+            transition: opacity $animate-sm, transform $animate-sm;
+
+            @include media($max: "md") {
+                @include absolute(auto, auto, $spacing-md, $spacing-md);
+            }
+
+            @include media($max: "sm") {
+                @include absolute(auto, auto, $spacing-sm, $spacing-sm);
+            }
+
+            @include media("sm") {
+                padding-bottom: $spacing-md;
+            }
+
+            @include media("lg") {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            [name="nav-toggle"]:checked ~ & {
+                opacity: 1;
+                transform: translateX(0);
+
+                &:after {
+                    transform: scaleX(1);
+                }
+            }
+
+            &:after {
+                @include absolute(auto, auto, 0, 0);
+                content: "";
+                transform-origin: left;
+                transform: scaleX(0);
+                width: $spacing-xl;
+                height: 3px;
+                background-color: $color-orange;
+                transition: transform $animate-lg;
+                transition-delay: $animate-speed-sm;
+
+                @include media("lg") {
+                    transform: scaleX(1);
+                }
+            }
+        }
+
+        > nav {
+            @include space($spacing-sm);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+            z-index: 1;
+
+            @include media("lg") {
+                margin-top: auto;
+                margin-bottom: 0;
+                padding-bottom: $spacing-xs * 3;
+            }
+
+            > a {
+                @include listMargin($spacing-xs);
+                position: relative;
+                text-transform: uppercase;
+                opacity: 0;
+                transform: translateX(-#{$spacing-md});
+                transition:
+                    opacity $animate-sm,
+                    transform $animate-md;
+
+                &:after {
+                    @include absolute(auto, 0, 0, 0);
+                    content: "";
+                    transform: scaleX(0);
+                    transform-origin: left;
+                    border-bottom: 2px solid $color-orange;
+                    transition: transform $animate-md;
+                }
+
+                @for $i from 1 to 10 {
+                    &:nth-child(#{$i}) {
+                        transition-delay: 50ms * $i;
+                    }
+                }
+
+                @include media($max: "md") {
+                    @include type("heading-sm");
+                }
+
+                @include media("lg") {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+
+                [name="nav-toggle"]:checked ~ & {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+
+                &:hover {
+                    color: #000;
+
+                    &:after {
+                        transform: scaleX(1);
+                    }
+                }
+            }
+        }
+    }
+
+    &__toggle-cont {
+        @include absolute($spacing-xs * 3.5, $spacing-sm);
+        position: fixed;
+        z-index: 11;
+
+        @include media("md") {
+            top: $spacing-md;
+        }
+
+        @include media("lg") {
+            display: none;
+        }
+
+        > label {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: $spacing-sm;
+            height: $spacing-xs;
+
+            > span {
+                border-bottom: 2px solid $color-orange;
+                transform: scaleX(0.75);
+                transition: transform $animate-sm;
+            }
+
+            &:hover > span {
+                transform: scaleX(1);
+            }
+
+            [name="nav-toggle"]:checked ~ & {
+                justify-content: center;
+
+                > span {
+                    &:first-child {
+                        transform: rotate(45deg) scaleX(1) translateY(1px);
+                    }
+                    &:last-child {
+                        transform: rotate(-45deg) scaleX(1) translateY(-1px);
+                    }
+                }
+            }
+        }
     }
 }
+
